@@ -14,12 +14,13 @@
 ## 本地运行
 
 ```bash
-python3 -m http.server 4173 -d dist
+python3 -m http.server 4173 -d docs
 ```
 
 浏览器打开 <http://localhost:4173>。
 
+线上版本通过 GitHub Pages 从 `main/docs` 发布。
+
 ## 设计者
 
 吴瑜英 · WUYUYING
-
