@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0b10" />
+    <meta name="description" content="Vela 企业 AI Agent 新手 Onboarding 高保真交互 Demo" />
+    <meta property="og:title" content="Vela · AI Agent Onboarding" />
+    <meta property="og:description" content="让第一次真实委派变得可理解、可授权、可追踪、可恢复、可交付。" />
+    <meta property="og:type" content="website" />
+    <title>Vela · AI Agent Onboarding Demo</title>
+    <link rel="icon" type="image/png" href="assets/vela-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div id="app" class="app-shell">
+      <aside class="icon-rail" aria-label="主导航">
+        <button class="brand-orb" data-action="reset" aria-label="返回首页">
+          <img src="assets/vela-icon.png" alt="Vela" />
+        </button>
+        <nav class="rail-nav">
+          <button class="rail-btn active" data-action="reset" aria-label="新任务" title="新任务">✦</button>
+          <button class="rail-btn" data-action="toast" data-message="任务中心将在首个任务完成后开放" aria-label="任务中心" title="任务中心">◉</button>
+          <button class="rail-btn" data-action="toast" data-message="暂无待审批的权限请求" aria-label="审批" title="审批">◌</button>
+          <button class="rail-btn" data-action="toast" data-message="产物库将在任务完成后同步更新" aria-label="产物库" title="产物库">□</button>
+        </nav>
+        <button class="user-avatar" data-action="openAbout" aria-label="关于本项目">吴</button>
+      </aside>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="workspace-switcher">
+          <span class="workspace-name">Vela</span>
+          <span class="workspace-tag">WORKSPACE</span>
+          <span aria-hidden="true">⌄</span>
+        </div>
+        <button class="new-task" data-action="reset"><span>✎</span> 新建任务 <kbd>⌘ N</kbd></button>
+        <div class="side-section">
+          <p class="side-label">置顶项目</p>
+          <button class="side-item"><span>▱</span> 增长经营中枢</button>
+          <button class="side-item"><span>▱</span> 客户洞察</button>
+        </div>
+        <div class="side-section grow">
+          <p class="side-label">最近任务</p>
+          <button class="side-item selected" data-action="reset"><span>•</span> Q3 续费下降复盘 <i></i></button>
+          <button class="side-item" data-action="toast" data-message="这是示例历史任务"><span></span> 渠道增长异常分析</button>
+          <button class="side-item" data-action="toast" data-message="这是示例历史任务"><span></span> 客户流失原因调研</button>
+          <button class="side-item" data-action="toast" data-message="这是示例历史任务"><span></span> 下半年竞品扫描</button>
+        </div>
+        <div class="profile-row">
+          <span class="avatar-small">吴</span>
+          <span><strong>吴瑜英</strong><small>产品设计候选人</small></span>
+          <button data-action="openAbout" aria-label="更多">•••</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="breadcrumb"><button class="mobile-menu" data-action="toggleSidebar" aria-label="打开菜单">☰</button><strong>Vela</strong><span>/</span><span id="pageTitle">新建任务</span><em id="modePill">GUIDED</em></div>
+          <div class="top-actions">
+            <button class="text-button" data-action="openFlow">查看流程</button>
+            <button class="icon-button" data-action="openAbout" aria-label="项目说明">•••</button>
+          </div>
+        </header>
+        <div class="stage-strip" id="stageStrip" aria-label="任务进度"></div>
+        <section id="view" class="view" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="modalRoot"></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <input id="fileInput" type="file" hidden />
+    <script src="app.js"></script>
+  </body>
+</html>
